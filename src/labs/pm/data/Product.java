@@ -16,10 +16,14 @@
  */
 package labs.pm.data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
+
 import static java.math.RoundingMode.HALF_UP;
+
 import java.time.LocalDate;
 import java.util.Objects;
+
 import static labs.pm.data.Rating.NOT_RATED;
 
 /**
@@ -31,10 +35,10 @@ import static labs.pm.data.Rating.NOT_RATED;
  * Each product can have a discount, calculated based on a
  * {@link DISCOUNT_RATE discount rate}
  *
- * @version 4.0
  * @author aloar
+ * @version 4.0
  */
-public abstract class Product implements Rateable<Product> {
+public abstract class Product implements Rateable<Product>, Serializable {
 
     private int id;
     private String name;
@@ -60,7 +64,6 @@ public abstract class Product implements Rateable<Product> {
      * of the discount rate
      * <br>
      * Discount Rate is 10%
-     *
      */
     private static final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);
 
@@ -68,7 +71,7 @@ public abstract class Product implements Rateable<Product> {
         return id;
     }
 
-//    public void setId(int id) {
+    //    public void setId(int id) {
 //        this.id = id;
 //    }
     public String getName() {
@@ -86,6 +89,7 @@ public abstract class Product implements Rateable<Product> {
 //    public void setPrice(BigDecimal price) {
 //        this.price = price;
 //    }
+
     /**
      * Caluclates a discount based on a product price and
      * {@link DISCOUNT_RATE discount rate}
@@ -101,7 +105,7 @@ public abstract class Product implements Rateable<Product> {
         return rating;
     }
 
-//    public abstract Product applyRating(Rating newRating);
+    //    public abstract Product applyRating(Rating newRating);
 //    {
 //        return new Product(id, name, price, newRating);
 //    }
